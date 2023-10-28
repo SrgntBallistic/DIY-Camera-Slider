@@ -489,6 +489,12 @@ function readStatus(){
 	    $('#status-endSlide').text(jsonResponse.epX);
 	    $('#status-endRotation').text(jsonResponse.epZ);
 
+	    // Slider Endstop Status
+	    $('#status-slider-endstop').text(jsonResponse.endstopX === 1 ? 'Open' : 'Triggered');
+	    
+		// Rotation Endstop Status
+	    $('#status-rotation-endstop').text(jsonResponse.endstopZ === 1 ? 'Open' : 'Triggered');
+
 
 	    // Slider state
 	    // $('#status-state').text(sliderStates[jsonResponse.state]);

@@ -16,6 +16,7 @@
 #define PIN_MTR_nEN                 4
 #define PIN_LED 					2
 #define PIN_END_SWICH_X			    21
+#define PIN_END_SWICH_Z			    22
 
 
 // "Mechanical" configuration of the camera slider

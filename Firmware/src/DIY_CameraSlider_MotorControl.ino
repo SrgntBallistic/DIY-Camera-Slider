@@ -284,7 +284,7 @@ void CameraSlider_EnableMotors(bool enable)
 bool CameraSlider_FormatJSON_CameraSliderStatus(char *buff, int size)
 {
     int len;
-    len = snprintf(buff, size, "{\"homed\":%d,\"motors\":%d,\"state\":%d,\"posX\":%f,\"posZ\":%f,\"spX\":%f,\"spZ\":%f,\"epX\":%f,\"epZ\":%f}",
+    len = snprintf(buff, size, "{\"homed\":%d,\"motors\":%d,\"state\":%d,\"posX\":%f,\"posZ\":%f,\"spX\":%f,\"spZ\":%f,\"epX\":%f,\"epZ\":%f,\"endstopX\":%d,\"endstopZ\":%d}",
                  bhomingComplete,
                  bmotorState,
                  sliderState,
@@ -293,8 +293,9 @@ bool CameraSlider_FormatJSON_CameraSliderStatus(char *buff, int size)
                  fStartPos_Slider,
                  SliderConfig.Config.rotate_direction*(fStartPos_Rotation/SliderConfig.Config.pan_steps_per_degree),
                  fEndPos_Slider,
-                 SliderConfig.Config.rotate_direction*(fEndPos_Rotation/SliderConfig.Config.pan_steps_per_degree)
-
+                 SliderConfig.Config.rotate_direction*(fEndPos_Rotation/SliderConfig.Config.pan_steps_per_degree),
+                 digitalRead(PIN_END_SWICH_X),
+                 digitalRead(PIN_END_SWICH_Z)
                 );
 
     if(len > 0)
